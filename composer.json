@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "arthr/cms",
+    "description": "A free Content Manager System",
+    "keywords": ["cms", "free"],
     "license": "MIT",
     "type": "project",
     "require": {
