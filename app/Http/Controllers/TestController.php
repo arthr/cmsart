@@ -13,9 +13,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        echo config('instagram.sleep_seconds').'<br>';
-        echo config('instagram.algorithm');
-        die;
+        return view('layout.front.master');
     }
 
     /**
