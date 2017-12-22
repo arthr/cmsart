@@ -7,81 +7,54 @@
 <div class="nk-cart">
     <div class="nk-gap-2"></div>
     <div class="container">
-        <div class="nk-store nk-store-cart">
-            <div class="table-responsive">
-                <table class="table nk-store-cart-products">
-                    <tbody>
-
-                        <tr>
-                            <td class="nk-product-cart-thumb">
-                                <a href="store-product.html" class="nk-post-image">
-                                    <img src="assets/images/product-2-sm.png" alt="Men Tshirt" class="nk-img">
-                                </a>
-                            </td>
-                            <td class="nk-product-cart-title">
-                                <h2 class="nk-post-title h5">
-                                    <a href="store-product.html">Men Tshirt</a>
-                                </h2>
-                            </td>
-                            <td class="nk-product-cart-price">$67.00</td>
-                            <td class="nk-product-cart-quantity">
-                                1
-                            </td>
-                            <td class="nk-product-cart-total">
-                                $67.00
-                            </td>
-                            <td class="nk-product-cart-remove">
-                                <a href="#">
-                                    <span class="ion-trash-b"></span>
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="nk-product-cart-thumb">
-                                <a href="store-product.html" class="nk-post-image">
-                                    <img src="assets/images/product-4-sm.png" alt="Men Hoodie" class="nk-img">
-                                </a>
-                            </td>
-                            <td class="nk-product-cart-title">
-                                <h2 class="nk-post-title h5">
-                                    <a href="store-product.html">Men Hoodie</a>
-                                </h2>
-                            </td>
-                            <td class="nk-product-cart-price">$125.00
-                                <del>$145.00</del>
-                            </td>
-                            <td class="nk-product-cart-quantity">
-                                2
-                            </td>
-                            <td class="nk-product-cart-total">
-                                $250.00
-                            </td>
-                            <td class="nk-product-cart-remove">
-                                <a href="#">
-                                    <span class="ion-trash-b"></span>
-                                </a>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
+        <div class="nk-page-background op-5"
+             data-bg-mp4="{{ asset('assets/video/bg-2.mp4') }}"
+             data-bg-webm="{{ asset('assets/video/bg-2.webm') }}"
+             data-bg-ogv="{{ asset('assets/video/bg-2.ogv') }}"
+             data-bg-poster="{{ asset('assets/video/bg-2.jpg') }}">
+            
+        </div>
+        <div class="nk-boxtext-white">
+            <div class="nk-gap-1"></div>
+            <div class="container">
+                <div class="text-xs-left">
+                    <h3 class="nk-title-back">My Account</h3>
+                    <h2 class="nk-title h1">My Account</h2>
+                </div>
             </div>
-
-            <div class="nk-gap-2"></div>
-            <div class="nk-cart-total">
-                Total
-                <span>$317</span>
-            </div>
-
-            <div class="nk-gap-3"></div>
-            <div class="nk-cart-btns">
-                <a href="#" class="nk-btn nk-btn-lg nk-btn-color-main-1 link-effect-4">
-                    Login
-                </a> &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="#" class="nk-btn nk-btn-lg link-effect-4 nk-cart-toggle">
-                    Go Back
-                </a>
+            <div class="nk-gap-1"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="nk-box-3 bg-dark-1">
+                    <h2 class="nk-title h3 text-xs-center">Login</h2>
+                    <div class="nk-gap-2"></div>
+                    
+                    <form action="php/contact.php" class="nk-form nk-form-ajax nk-form-style-1">
+                        
+                        <input type="email" class="form-control required" name="email" placeholder="Email *">
+                        <div class="nk-gap-1"></div>
+                        
+                        <input type="password" class="form-control required" name="password" placeholder="Password *">
+                        <div class="nk-gap-1"></div>
+                        
+                        <div class="nk-form-response-success"></div>
+                        <div class="nk-form-response-error"></div>
+                        
+                        <div class="nk-cart-btns">
+                            <button type="submit" class="nk-btn nk-btn-lg nk-btn-color-main-1 link-effect-4">
+                                Login
+                            </button> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#" class="nk-btn nk-btn-lg link-effect-4 nk-cart-toggle">
+                                Go Back
+                            </a>
+                        </div>
+                        
+                    </form>
+                    
+                </div>
             </div>
         </div>
     </div>

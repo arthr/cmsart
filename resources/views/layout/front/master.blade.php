@@ -9,7 +9,7 @@
         <title>{{ env('APP_NAME') }}</title>
         <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}">
         @section('headStyles')
-        @include('layout.front.styles')
+            @include('layout.front.styles')
         @show
     </head>
     <body>
@@ -38,285 +38,36 @@
 
         @include('layout.front.rightnav')
 
-
-
         <div class="nk-main">
 
+            @include('layout.front.banner')
 
-            <!-- START: Header Title -->
-            <!--
-        Additional Classes:
-            .nk-header-title-sm
-            .nk-header-title-md
-            .nk-header-title-lg
-            .nk-header-title-xl
-            .nk-header-title-full
-            .nk-header-title-parallax
-            .nk-header-title-parallax-opacity
-            .nk-header-title-boxed
-            -->
-            <div class="nk-header-title nk-header-title-lg nk-header-title-parallax nk-header-title-parallax-opacity">
-                <div class="bg-image">
-                    <div style="background-image: url('{{ asset('assets/images/image-1.jpg') }}');"></div>
-                </div>
-                <div class="nk-header-table">
-                    <div class="nk-header-table-cell">
-                        <div class="container">
+            @include('layout.front.slider')
 
-                            <div class="nk-header-text">
+            @include('layout.front.features')
 
-                                <h1 class="nk-title display-3">Enjoy this battle!</h1>
+            @include('layout.front.population')
 
-                                <div class="nk-gap-2"></div>
-                                <a href="#" class="nk-btn nk-btn-lg nk-btn-color-main-1 link-effect-4">
-                                    <span>Register</span>
-                                </a>
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="#" class="nk-btn nk-btn-lg link-effect-4">
-                                    <span>Download</span>
-                                </a>
+            @include('layout.front.video')
 
-                                <div class="nk-gap-4"></div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- END: Header Title -->
-
-
-
-
-
-            <!-- START: Rev Slider -->
-            <div class="mnt-80">
-                <div id="rev_slider_50_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="photography-carousel48" style="padding:0px;">
-                    <div id="rev_slider_50_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.0.7">
-                        <ul>
-                            <!-- SLIDE  -->
-                            <li data-index="rs-185" data-transition="slideoverhorizontal" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="assets/images/gallery-3-thumb.jpg" data-rotate="0" data-saveperformance="off">
-                                <!-- MAIN IMAGE -->
-                                <img src="assets/images/gallery-3.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                            </li>
-                            <!-- SLIDE  -->
-                            <li data-index="rs-192" data-transition="slideoververtical" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="assets/images/gallery-5-thumb.jpg" data-rotate="0" data-saveperformance="off">
-                                <!-- MAIN IMAGE -->
-                                <img src="assets/images/gallery-5.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                            </li>
-                            <!-- SLIDE  -->
-                            <li data-index="rs-186" data-transition="slideoverhorizontal" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="assets/images/gallery-4-thumb.jpg" data-rotate="0" data-saveperformance="off">
-                                <!-- MAIN IMAGE -->
-                                <img src="assets/images/gallery-4.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                            </li>
-                            <!-- SLIDE  -->
-                            <li data-index="rs-183" data-transition="slideoververtical" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="assets/images/gallery-1-thumb.jpg" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off">
-                                <!-- MAIN IMAGE -->
-                                <img src="assets/images/gallery-1.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                            </li>
-                        </ul>
-                        <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- END: Rev Slider -->
-
-            <!-- START: Features -->
-            <div class="container">
-                <div class="nk-gap-6"></div>
-                <div class="nk-gap-2"></div>
-                <div class="row vertical-gap lg-gap">
-                    <div class="col-md-4">
-                        <div class="nk-ibox">
-                            <div class="nk-ibox-icon nk-ibox-icon-circle">
-                                <span class="ion-person-add"></span>
-                            </div>
-                            <div class="nk-ibox-cont">
-                                <h2 class="nk-ibox-title">Register Now</h2>
-                                Register your account right now and be the first player on the top!
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="nk-ibox">
-                            <div class="nk-ibox-icon nk-ibox-icon-circle">
-                                <span class="ion-ios-cloud-download"></span>
-                            </div>
-                            <div class="nk-ibox-cont">
-                                <h2 class="nk-ibox-title">Download Patch</h2>
-                                You will really need this to play in our server. Believe, it's true!
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="nk-ibox">
-                            <div class="nk-ibox-icon nk-ibox-icon-circle">
-                                <span class="ion-ios-game-controller-b"></span>
-                            </div>
-                            <div class="nk-ibox-cont">
-                                <h2 class="nk-ibox-title">Play Beta</h2>
-                                Dont worry about play in our Beta Server. All your aquisitions will be safe when the official server begin!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="nk-gap-2"></div>
-                <div class="nk-gap-6"></div>
-            </div>
-            <!-- END: Features -->
-
-            <!-- START: About -->
-            <div class="nk-box bg-dark-1">
-                <div class="container text-xs-center">
-                    <div class="nk-gap-6"></div>
-                    <div class="nk-gap-2"></div>
-                    <h2 class="nk-title h1">Lineage Brasil Club</h2>
-                    <div class="nk-gap-3"></div>
-
-                    <p class="lead">Our main differential is the purpose behind the server. The will and dream of being able to recall in practice the best moments that this incredible game called Lineage can already provide us. It is about delivering to Brazilian players and members of #Club, the best gameplay ever experienced by them on a server besides living everything else with a lower latency they have experienced.
-                        <br><br>So this small legion of Lineage fans are waiting for us:</p>
-
-                    <div class="nk-gap-2"></div>
-                    <div class="row equal-height no-gap multi-columns-row">
-                        <div class="col-md-4">
-                            <div class="nk-box-2 nk-box-line">
-                                <!-- START: Counter -->
-                                <div class="nk-counter-3">
-                                    <div class="nk-count">2387</div>
-                                    <h3 class="nk-counter-title h4">Registered Players</h3>
-                                    <div class="nk-gap-1"></div>
-                                </div>
-                                <!-- END: Counter -->
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="nk-box-2 nk-box-line">
-                                <!-- START: Counter -->
-                                <div class="nk-counter-3">
-                                    <div class="nk-count">48</div>
-                                    <h3 class="nk-counter-title h4">Clans Estimated</h3>
-                                    <div class="nk-gap-1"></div>
-                                </div>
-                                <!-- END: Counter -->
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="nk-box-2 nk-box-line">
-                                <!-- START: Counter -->
-                                <div class="nk-counter-3">
-                                    <div class="nk-count">141</div>
-                                    <h3 class="nk-counter-title h4">Party Estimated</h3>
-                                    <div class="nk-gap-1"></div>
-                                </div>
-                                <!-- END: Counter -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nk-gap-2"></div>
-                    <div class="nk-gap-6"></div>
-                </div>
-            </div>
-            <!-- END: About -->
-
-            <!-- START: Video -->
-            <div class="container">
-                <div class="nk-gap-6"></div>
-                <div class="nk-gap-2"></div>
-                <div class="row">
-                    <div class="col-md-8 offset-md-2">
-                        <div class="nk-plain-video" data-video="https://www.youtube.com/watch?v=Wb2qjfpOeMo" data-video-thumb="{{ asset('assets/images/video-6-thumb.jpg') }}"></div>
-                    </div>
-                </div>
-                <div class="nk-gap-2"></div>
-                <div class="nk-gap-6"></div>
-            </div>
-            <!-- END: Video -->
-
-            <!-- START: Coming Soon -->
-            <div class="nk-box bg-dark-1 text-xs-center">
-                <div class="nk-gap-6"></div>
-                <div class="nk-gap-2"></div>
-                <div class="bg-image op-3" style="background-image: url('assets/images/image-3.jpg');"></div>
-                <div class="container">
-                    <h2 class="display-4">Coming soon...</h2>
-                    <div class="nk-gap"></div>
-                    <div>We're wainting for you in this Journey.<br>You don't get to be great without a victory...</div>
-                    <div class="nk-gap-4"></div>
-
-                    <div class="nk-countdown" data-end="2018-02-24 14:00" data-timezone="America/Sao_Paulo"></div>
-                </div>
-                <div class="nk-gap-2"></div>
-                <div class="nk-gap-6"></div>
-            </div>
-            <!-- END: Coming Soon -->
+            @include('layout.front.countdown')
 
             @include('layout.front.testimonials')
 
             @include('layout.front.subscribe')
 
-            
+            @include('layout.front.footer')
 
         </div>
 
-
-
-        <!--
-        START: Share Buttons
-            .nk-share-buttons-left
-        -->
-        <div class="nk-share-buttons nk-share-buttons-left">
-            <ul>
-                <li>
-                    <span class="nk-share-icon" title="Share page on Facebook" data-share="facebook">
-                        <span class="icon fa fa-facebook"></span>
-                    </span>
-                    <span class="nk-share-name">Facebook</span>
-                </li>
-            <!--
-            <li>
-                <span class="nk-share-icon" title="Share page on Twitter" data-share="twitter">
-                    <span class="icon fa fa-twitter"></span>
-                </span>
-                <span class="nk-share-name">Twitter</span>
-            </li>
-            <li>
-                <span class="nk-share-icon" title="Share page on Google+" data-share="google-plus">
-                    <span class="icon fa fa-google-plus"></span>
-                </span>
-                <span class="nk-share-name">Google Plus</span>
-            </li>
-                
-            <li>
-                <span class="nk-share-icon" title="Share page on Pinterest" data-share="pinterest">
-                    <span class="icon fa fa-pinterest"></span>
-                </span>
-                <span class="nk-share-name">Pinterest</span>
-            </li>
-            <li>
-                <span class="nk-share-icon nk-btn nk-btn-lg nk-btn-icon" title="Share page on LinkedIn" data-share="linkedin">
-                    <span class="icon fa fa-linkedin"></span>
-                </span>
-                <span class="nk-share-name">LinkedIn</span>
-            </li>
-            <li>
-                <span class="nk-share-icon nk-btn nk-btn-lg nk-btn-icon" title="Share page on VK" data-share="vk">
-                    <span class="icon fa fa-vk"></span>
-                </span>
-                <span class="nk-share-name">Vkontakte</span>
-            </li>
-                -->
-            </ul>
-        </div>
+        @include('layout.front.sharebuttons')
 
         @include('layout.front.sidebuttons')
 
         @include('layout.front.myaccount')
 
         @section('footerScripts')
-        @include('layout.front.scripts')
+            @include('layout.front.scripts')
         @show
 
     </body>

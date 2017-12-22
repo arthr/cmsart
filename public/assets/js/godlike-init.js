@@ -1,13 +1,3 @@
-/*!-----------------------------------------------------------------
-  Name: GODLIKE - Gaming Template
-  Version: 1.0.0
-  Author: _nK
-  Website: https://nkdev.info
-  Purchase: https://nkdev.info
-  Support: https://nk.ticksy.com
-  License: You must have a valid license purchased only from ThemeForest (the above link) in order to legally use the theme for your project.
-  Copyright 2016.
--------------------------------------------------------------------*/
 ;(function() {
 'use strict';
 
