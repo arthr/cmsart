@@ -18,8 +18,8 @@
                         <button type="submit" class="nk-btn nk-btn-lg nk-btn-color-main-1 link-effect-4">
                             Login
                         </button> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="#" class="nk-btn nk-btn-lg link-effect-4 nk-cart-toggle">
-                            Go Back
+                        <a href="{{ route('password.request') }}" class="nk-btn nk-btn-lg link-effect-4">
+                            Forget Password
                         </a>
                     </div>
 

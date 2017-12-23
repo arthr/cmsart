@@ -41,12 +41,22 @@
                     </label>
                     <div class="nk-gap-1"></div>
 
-                    <div class="nk-form-response-success"></div>
-                    <div class="nk-form-response-error">
+                    @if (session('status'))
+                    <div class="nk-form-response-success" style="display: block;">
+                        {{ session('status') }}
                     </div>
+                    @endif
+
+                    @if ($errors->any())
+                    <div class="nk-form-response-error" style="display:block;">
+                        @foreach($errors->all() as $error)
+                        {{ $error }}<br>
+                        @endforeach
+                    </div>
+                    @endif
                     <div class="nk-gap-1"></div>
-                    
-                    <button type="sugmit" class="nk-btn nk-btn-lg nk-btn-block nk-btn-color-main-1 link-effect-4">Register</button>
+
+                    <button type="submit" class="nk-btn nk-btn-lg nk-btn-block nk-btn-color-main-1 link-effect-4">Register</button>
                 </form>
             </div>
         </div>
