@@ -2857,20 +2857,29 @@ function _initForms() {
                 $(form).ajaxSubmit({
                     type: 'POST',
                     success: function success(response) {
-                        response = JSON.parse(response);
-                        if (response.type && response.type === 'success') {
+//                        response = JSON.parse(response);
+                        if (response.success || response.success === 'true') {
                             $responseError.hide();
-                            $responseSuccess.html(response.response).show();
+                            $responseSuccess.html(response.message).show();
                             form.reset();
+                            setTimeout(function(){
+                                window.location = '/home';
+                            }, 5000);
                         } else {
                             $responseSuccess.hide();
-                            $responseError.html(response.response).show();
+                            $responseError.html(response.message).show();
                         }
                         self.debounceResize();
                     },
                     error: function error(response) {
                         $responseSuccess.hide();
-                        $responseError.html(response.responseText).show();
+                        let headDom = $('<h6>Some erros ocurred:</h6>');
+                        let ulDom = $('<ul />');
+                        $.each(response.responseJSON.errors, function (input, message){
+                           ulDom.append($('<li>'+ message +'</li>'));
+                        });
+                        $responseError.html(ulDom).prepend(headDom).show();
+                        
                         self.debounceResize();
                     }
                 });

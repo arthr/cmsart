@@ -48,14 +48,19 @@
 
 
                 <li class=" ">
-                    <a href="#" class="nk-cart-toggle no-link-effect">
+                    <a href="" onclick="return false;"class="nk-cart-toggle no-link-effect">
                         <span class="nk-icon-toggle" style="width: inherit;">
                             <span class="nk-icon-toggle-front">
-                                <span class="ion-locked"></span>
+                                @guest
+                                <span class="ion-log-in"></span>
                                 My Account
+                                @else
+                                <span class="ion-unlocked"></span>
+                                {{ Auth::user()->name }}
+                                @endguest
                             </span>
                             <span class="nk-icon-toggle-back">
-                                <span class="ion-locked"></span>
+                                <span class="ion-close"></span>
                                 Close
                             </span>
                         </span>

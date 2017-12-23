@@ -73,7 +73,7 @@
 <script src="{{ asset('assets/bower_components/prism/prism.js') }}"></script>
 
 <!-- GODLIKE -->
-<script src="{{ asset('assets/js/godlike.min.js') }}"></script>
+<script src="{{ asset('assets/js/godlike.js') }}"></script>
 <script src="{{ asset('assets/js/godlike-init.js') }}"></script>
 <!-- END: Scripts -->
 

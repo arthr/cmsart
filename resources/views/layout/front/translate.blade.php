@@ -12,7 +12,6 @@
                         </ul>
                     </li>
                     <li><a href="#">Privacy</a></li>
-                    <li><a href="#"><font color="00ff00">Register</font></a></li>
                 </ul>
             </div>
         </div>

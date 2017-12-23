@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="A Free Content Manager System">
         <meta name="author" content="Arthur Morais">
-        <title>{{ env('APP_NAME') }}</title>
+        <title>{{ config('app.name') }}</title>
         <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}">
         @section('headStyles')
             @include('layout.front.styles')
@@ -40,21 +40,7 @@
 
         <div class="nk-main">
 
-            @include('layout.front.banner')
-
-            @include('layout.front.slider')
-
-            @include('layout.front.features')
-
-            @include('layout.front.population')
-
-            @include('layout.front.video')
-
-            @include('layout.front.countdown')
-
-            @include('layout.front.testimonials')
-
-            @include('layout.front.subscribe')
+            @yield('content')
 
             @include('layout.front.footer')
 

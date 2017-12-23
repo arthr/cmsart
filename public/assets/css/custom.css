@@ -1,1 +1,9 @@
-/* PLACE YOU CUSTOM STYLES IN THIS FILE */
+form.nk-form label {
+    width: 100%;
+}
+form.nk-form input#terms {
+    width: auto;
+    float: left;
+    margin-top: 8px;
+    margin-right: 5px;
+}

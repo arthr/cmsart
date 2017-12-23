@@ -5,7 +5,7 @@
 <div class="nk-side-buttons nk-side-buttons-visible">
     <ul>
         <li>
-            <a href="#" class="nk-btn nk-btn-lg nk-btn-color-main-1 link-effect-4 ready">Register</a>
+            <a href="{{ route('register') }}" class="nk-btn nk-btn-lg nk-btn-color-main-1 link-effect-4 ready">Register</a>
         </li>
         <li>
             <span class="nk-btn nk-btn-lg nk-btn-icon nk-bg-audio-toggle">
