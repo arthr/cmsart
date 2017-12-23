@@ -48,24 +48,38 @@
 
 
                 <li class=" ">
-                    <a href="" onclick="return false;"class="nk-cart-toggle no-link-effect">
-                        <span class="nk-icon-toggle" style="width: inherit;">
-                            <span class="nk-icon-toggle-front">
-                                @guest
-                                <span class="ion-log-in"></span>
-                                My Account
-                                @else
-                                <span class="ion-unlocked"></span>
-                                {{ Auth::user()->name }}
-                                @endguest
-                            </span>
-                            <span class="nk-icon-toggle-back">
-                                <span class="ion-close"></span>
-                                Close
-                            </span>
+                    <a href="{{ route('myaccount') }}" class="no-link-effect">
+                        <span class="nk-icon-toggle-front">
+                            @guest
+                            <span class="ion-lock-combination"></span>
+                            My Account
+                            @else
+                            <span class="ion-person-stalker"></span>
+                            {{ explode(' ', Auth::user()->name)[0] }}
+                            @endguest
                         </span>
                     </a>
                 </li>
+
+                <!--                <li class=" ">
+                                    <a href="" onclick="return false;"class="nk-cart-toggle no-link-effect">
+                                        <span class="nk-icon-toggle" style="width: inherit;">
+                                            <span class="nk-icon-toggle-front">
+                                                @guest
+                                                <span class="ion-log-in"></span>
+                                                My Account
+                                                @else
+                                                <span class="ion-unlocked"></span>
+                                                {{ Auth::user()->name }}
+                                                @endguest
+                                            </span>
+                                            <span class="nk-icon-toggle-back">
+                                                <span class="ion-close"></span>
+                                                Close
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>-->
 
                 <li class="single-icon">
                     <a href="#" class="no-link-effect" data-nav-toggle="#nk-side">

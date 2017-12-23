@@ -14,9 +14,10 @@
                 <div class="nk-store-account-links">
                     <ul>
                         <li class="active"><a href="#">Dashboard</a></li>
+                        <li><a href="#">Game Account</a></li>
                         <li><a href="#">Characters</a></li>
-                        <li><a href="#">Account Security</a></li>
                         <li><a href="#">Donations History</a></li>
+                        <li><a href="#">Account Security</a></li>
                         <li><a href="{{ route('logout') }}">Logout</a></li>
                     </ul>
                 </div>
@@ -28,6 +29,5 @@
         </div>
     </div>
 
-    <div class="nk-gap-4"></div>
-    <div class="nk-gap-3"></div>
+    <div class="nk-gap-2"></div>
 </div>
