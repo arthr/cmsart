@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use App\Notifications\SendConfirmation;
@@ -118,7 +119,40 @@ use RegistersUsers;
         $user->confirmation_code = null;
         $user->save();
         $this->guard()->login($user);
-        return redirect(route('myaccount'));
+        return redirect(route('myaccount'))->with('status', trans('auth.confirmation_complete'));
+    }
+
+    /**
+     * Resend email confirmation
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function resendConfirmation(Request $request) {
+        if ($request->isMethod('POST')) {
+            $user = User::where(['email' => $request->only('email'), 'confirmed' => 0])->first();
+
+            if ($user === null) {
+                return $this->sendFailedEmailResponse($request);
+            }
+
+            $user->notify(new SendConfirmation($user));
+
+            return redirect(route('register.resend_confirmation'))->with('status', trans('auth.confirmation_sended'));
+        } else {
+            return view('auth.confirmation.email');
+        }
+    }
+
+    /**
+     * Get failed email response
+     * 
+     * @param Request $request
+     * @throws type
+     * */
+    protected function sendFailedEmailResponse(Request $request) {
+        throw ValidationException::withMessages([
+            'email' => [trans('auth.confirmation_not_found')],
+        ]);
     }
 
 }

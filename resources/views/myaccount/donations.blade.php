@@ -1,3 +1,5 @@
+@extends('layout.myaccount.master')
+@section('myaccount')
 <div class="nk-box-3 bg-dark-1">
     <h2 class="nk-title">Donations History</h2>
     <div class="nk-gap-1"></div>
@@ -36,3 +38,4 @@
         </table>
     </div>
 </div>
+@endsection

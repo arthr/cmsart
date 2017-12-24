@@ -20,8 +20,12 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::get('register/confirmation/{confirmation_code}', 'Auth\RegisterController@confirmation')->name('register.confirmation');
 Route::post('register', 'Auth\RegisterController@register');
+
+//Registration Confirm Routes..
+Route::get('register/confirmation/{confirmation_code}', 'Auth\RegisterController@confirmation')->name('register.confirmation');
+Route::get('register/resend-confirmation', 'Auth\RegisterController@resendConfirmation')->name('register.resend_confirmation');
+Route::post('register/resend-confirmation', 'Auth\RegisterController@resendConfirmation')->name('register.resend_confirmation');
 
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
@@ -31,6 +35,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 //My Account Routes...
 Route::get('myaccount', 'MyAccount\ProfileController@index')->name('myaccount');
+Route::get('myaccount/donations', 'MyAccount\DonationController@index')->name('donations');
 
 
 //Route::get('home', 'TestController@index')->name('home');

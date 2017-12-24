@@ -31,19 +31,22 @@
                 <div class="nk-nav-row nk-nav-row-full nk-nav-row-center">
                     <ul class="nk-nav">
                         <li class=" ">
-                            <a href="#">Server Info</a>
-                        </li>
-                        <li class=" ">
-                            <a href="#">Register</a>
-                        </li>
-                        <li class=" ">
                             <a href="#">Donate</a>
                         </li>
                         <li class=" ">
                             <a href="#">Ranking</a>
                         </li>
                         <li class=" ">
-                            <a href="#">Forum</a>
+                            <a href="#">Boss Jewelry</a>
+                        </li>
+                        <li class=" ">
+                            <a href="#">Boss Status</a>
+                        </li>
+                        <li class=" ">
+                            <a href="#">Castle Siege</a>
+                        </li>
+                        <li class=" ">
+                            <a href="#">Olympiads</a>
                         </li>
                     </ul>
                 </div>

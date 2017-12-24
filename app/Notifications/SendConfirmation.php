@@ -40,6 +40,7 @@ class SendConfirmation extends Notification {
      */
     public function toMail($notifiable) {
         return (new MailMessage)
+            ->subject('Email Confirmation - ' . config('app.name'))
             ->greeting("Hello {$this->user->name}!")
             ->line('Verify your email!')
             ->action('Veriry', url(config('app.url') . route('register.confirmation', $this->user->confirmation_code, false)))

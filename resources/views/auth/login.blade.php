@@ -31,9 +31,9 @@
                     <div class="nk-form-response-success"></div>
                     
                     @if ($errors->any())
-                    <div class="nk-form-response-error" style="display:block;">
+                    <div class="nk-form-response-error align-center" style="display:block;">
                         @foreach($errors->all() as $error)
-                        {{ $error }}<br>
+                        {!! $error !!}<br>
                         @endforeach
                     </div>
                     @endif
