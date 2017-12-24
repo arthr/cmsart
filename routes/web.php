@@ -20,6 +20,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::get('register/confirmation/{confirmation_code}', 'Auth\RegisterController@confirmation')->name('register.confirmation');
 Route::post('register', 'Auth\RegisterController@register');
 
 // Password Reset Routes...
@@ -29,7 +30,8 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 //My Account Routes...
-Route::get('myaccount', 'MyAccount\DashboardController@index')->name('myaccount');
+Route::get('myaccount', 'MyAccount\ProfileController@index')->name('myaccount');
+
 
 //Route::get('home', 'TestController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');

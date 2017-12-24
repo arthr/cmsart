@@ -29,7 +29,14 @@
                     <div class="nk-gap-1"></div>
 
                     <div class="nk-form-response-success"></div>
-                    <div class="nk-form-response-error"></div>
+                    
+                    @if ($errors->any())
+                    <div class="nk-form-response-error" style="display:block;">
+                        @foreach($errors->all() as $error)
+                        {{ $error }}<br>
+                        @endforeach
+                    </div>
+                    @endif
 
                     <div class="nk-cart-btns align-center">
                         <button type="submit" class="nk-btn nk-btn-lg nk-btn-color-main-1 link-effect-4">

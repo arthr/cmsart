@@ -61,6 +61,15 @@
                     </a>
                 </li>
 
+                @if(Auth::check())
+                <li class="single-icon">
+                    <a href="{{ route('logout') }}" class="no-link-effect">
+                        <span class="ion-log-out"></span>
+                        Logout
+                    </a>
+                </li>
+                @endif
+
                 <!--                <li class=" ">
                                     <a href="" onclick="return false;"class="nk-cart-toggle no-link-effect">
                                         <span class="nk-icon-toggle" style="width: inherit;">

@@ -50,8 +50,6 @@
 
         @include('layout.front.sidebuttons')
 
-        @include('layout.front.myaccount')
-
         @section('footerScripts')
             @include('layout.front.scripts')
         @show

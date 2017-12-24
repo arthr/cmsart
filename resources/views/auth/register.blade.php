@@ -19,9 +19,19 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 offset-lg-2">
+            
+            @if (session('status'))
+            <div class="nk-info-box bg-success">
+                <div class="nk-info-box-icon">
+                    <i class="ion-ios-checkmark"></i>
+                </div>
+                {!! session('status') !!}
+            </div>
+            @endif
+            
             <div class="nk-box-3 bg-dark-1">
 
-                <form class="nk-form nk-form-ajax nk-form-style-1" method="POST" action="{{ route('register') }}">
+                <form class="nk-form nk-form-style-1" method="POST" action="{{ route('register') }}">
                     {{ csrf_field() }}
                     <input type="text" class="form-control required" id="name" name="name" placeholder="Name *" value="{{ old('name') }}">
                     <div class="nk-gap-1"></div>
@@ -41,12 +51,6 @@
                     </label>
                     <div class="nk-gap-1"></div>
 
-                    @if (session('status'))
-                    <div class="nk-form-response-success" style="display: block;">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-
                     @if ($errors->any())
                     <div class="nk-form-response-error" style="display:block;">
                         @foreach($errors->all() as $error)
@@ -63,7 +67,8 @@
     </div>
 </div>
 
-<div class="nk-gap-3"></div>
+<div class="nk-gap-5"></div>
+
 <div class="nk-box text-xs-center text-white bg-dark-1">
     <div class="bg-image bg-image-parallax op-5" style="background-image: url('assets/images/image-2.jpg');"></div>
     <div class="nk-gap-4"></div>

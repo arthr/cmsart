@@ -25,7 +25,7 @@
             <!-- END: Sidebar -->
         </div>
         <div class="col-lg-9">
-            @include('layout.front.myaccount.dashboard')
+            @include('myaccount.profile')
         </div>
     </div>
 

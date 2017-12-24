@@ -43,9 +43,9 @@
 </div>
 
 @guest
-    @include('layout.front.myaccount.login')
+    @include('myaccount.login')
 @else
-    @include('layout.front.myaccount.painel')
+    @include('myaccount.painel')
 @endguest
 
 <div class="nk-gap-5"></div>
