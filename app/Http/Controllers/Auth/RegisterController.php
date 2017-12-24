@@ -119,7 +119,7 @@ use RegistersUsers;
         $user->confirmation_code = null;
         $user->save();
         $this->guard()->login($user);
-        return redirect(route('myaccount'))->with('status', trans('auth.confirmation_complete'));
+        return redirect(route('myaccount.profile'))->with('status', trans('auth.confirmation_complete'));
     }
 
     /**

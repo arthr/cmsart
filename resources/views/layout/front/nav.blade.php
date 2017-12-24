@@ -48,7 +48,7 @@
 
 
                 <li class=" ">
-                    <a href="{{ route('myaccount') }}" class="no-link-effect">
+                    <a href="{{ route('myaccount.profile') }}" class="no-link-effect">
                         <span class="nk-icon-toggle-front">
                             @guest
                             <span class="ion-lock-combination"></span>

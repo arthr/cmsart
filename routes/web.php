@@ -34,8 +34,8 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 //My Account Routes...
-Route::get('myaccount', 'MyAccount\ProfileController@index')->name('myaccount');
-Route::get('myaccount/donations', 'MyAccount\DonationController@index')->name('donations');
+Route::get('myaccount', 'MyAccount\ProfileController@index')->name('myaccount.profile');
+Route::get('myaccount/donations', 'MyAccount\DonationController@index')->name('myaccount.donations');
 
 
 //Route::get('home', 'TestController@index')->name('home');
