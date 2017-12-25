@@ -11,8 +11,9 @@ class DonationController extends Controller {
         $this->middleware('auth');
     }
 
-    public function index() {
-        return view('myaccount.donations');
+    public function index()
+    {
+        return view('myaccount.donations.index');
     }
 
 }

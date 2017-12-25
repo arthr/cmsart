@@ -1,67 +1,60 @@
 @extends('layout.front.master')
 
 @section('content')
-
-<div class="container">
-    <div class="nk-page-background op-5"
-         data-bg-mp4="{{ asset('assets/video/bg-2.mp4') }}"
-         data-bg-webm="{{ asset('assets/video/bg-2.webm') }}"
-         data-bg-ogv="{{ asset('assets/video/bg-2.ogv') }}"
-         data-bg-poster="{{ asset('assets/video/bg-2.jpg') }}">
-
-    </div>
-    <div class="nk-boxtext-white">
-        @guest
-        <div class="container">
-            <div class="nk-gap-1"></div>
-            <div class="text-xs-center">
-                <h3 class="nk-title-back">My Account</h3>
-                <h2 class="nk-title h1">Login</h2>
-                <div class="nk-title-sep-icon">
-                    <span class="icon">
-                        <span class="ion-locked"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        @else
-        <div class="container">
-            <div class="nk-gap-1"></div>
-            <div class="text-xs-left">
-                <h3 class="nk-title-back">My Account</h3>
-                <h2 class="nk-title h1">{{ Auth::user()->name }}</h2>
-                <div class="nk-title-sep-icon">
-                    <span class="icon">
-                        <span class="ion-person"></span>
-                    </span>
-                </div>
-            </div>
-            <div class="nk-gap-1"></div>
-        </div>
-        @endguest
-    </div>
-</div>
-
-@guest
-    @yield('myaccount')
-@else
+<div class="nk-box text-xs-center text-white bg-dark-3">
+    <div class="bg-image bg-image-parallax op-5" style="background-image: url('{{ asset('assets/images/image-2.jpg') }}');"></div>
+    <div class="nk-gap-2"></div>
     <div class="container">
-        <div class="row equal-height">
-            <div class="col-lg-3">
-                @include('layout.myaccount.sidebar')
-            </div>
-            <div class="col-lg-9">
-                @yield('myaccount')
+        <div class="row">
+            <div class="col-lg-12 text-md-right">
+                <div class="text-xs-right">
+                    <h3 class="nk-title-back nk-title-back-xs">My Account</h3>
+                </div>
             </div>
         </div>
-
-        <div class="nk-gap-2"></div>
     </div>
-@endguest
+    <div class="nk-gap-1"></div>
+</div>
+<div class="container">
 
-<div class="nk-gap-5"></div>
-<div class="nk-gap-5"></div>
+    <div class="nk-social-profile nk-social-profile-container-offset">
+        <div class="row">
+            <div class="col-md-5 col-lg-3">
+                <div class="nk-social-profile-avatar">
+                    <a href="#"><img src="{{ property_exists(Auth::user(), 'profile_pic') ? Auth::user()->profile_pic : asset('assets/images/avatar-1.jpg') }}" alt="{{ config('app.name') }}"></a>
+                </div>
+            </div>
+            <div class="col-md-7 col-lg-9">
+                <div class="nk-social-profile-info">
+                    <div class="nk-gap-2"></div>
+                    <div class="nk-social-profile-info-last-seen" style="float: right;">was online 2 hours ago</div>
+                    <h1 class="nk-social-profile-info-name">{{ Auth::user()->name }}</h1>
+                    <div class="nk-social-profile-info-username">@arthrmrs</div>
+                    <div class="nk-social-profile-info-actions">
+                        <a href="#" class="nk-btn link-effect-4">
+                            <span>Opt 1</span>
+                        </a>
+                        <a href="#" class="nk-btn link-effect-4">
+                            <span>Opt 2</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col-lg-3 nk-sidebar-sticky-parent">
+            @include('layout.myaccount.sidebar')
+        </div>
+
+        <div class="col-lg-9">
+            @yield('myaccount')
+        </div>
+    </div>
+
+    <div class="nk-gap-4"></div>
+    <div class="nk-gap-3"></div>
+</div>
 <!-- #include('myaccount.rewards') -->
-
 @endsection

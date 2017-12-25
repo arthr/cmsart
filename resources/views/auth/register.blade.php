@@ -45,10 +45,11 @@
                     <input type="password" class="form-control required" id="password-confirm" name="password_confirmation" placeholder="Confirm Password *" >
                     <div class="nk-gap-1"></div>
 
-                    <label>
-                        <input type="checkbox" class="form-control required" id="terms" name="terms">
-                        <small>I agree to the Terms of Use.</small>
-                    </label>
+                    <div class="form-check pull-left">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input required" id="terms" name="terms"> I agree to the Terms of Use.
+                        </label>
+                    </div>
                     <div class="nk-gap-1"></div>
 
                     @if ($errors->any())

@@ -4,22 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/F:/study/laravel/projects/cms/app/User.php</file>
-            <file>file:/F:/study/laravel/projects/cms/config/app.php</file>
-            <file>file:/F:/study/laravel/projects/cms/.env</file>
-            <file>file:/F:/study/laravel/projects/cms/config/auth.php</file>
-            <file>file:/F:/study/laravel/projects/cms/config/instagram.php</file>
-            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/front/myaccount.blade.php</file>
-            <file>file:/F:/study/laravel/projects/cms/app/Http/Controllers/TestController.php</file>
-            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/front/master.blade.php</file>
-            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/front/testimonials.blade.php</file>
-            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/front/nav.blade.php</file>
-            <file>file:/F:/study/laravel/projects/cms/config/services.php</file>
+            <file>file:/F:/study/laravel/projects/cms/resources/lang/en/myaccount.php</file>
             <file>file:/F:/study/laravel/projects/cms/routes/web.php</file>
-            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/front/sidebuttons.blade.php</file>
-            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/front/subscribe.blade.php</file>
-            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/front/rightnav.blade.php</file>
-            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/front/scripts.blade.php</file>
-            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/front/styles.blade.php</file>
+            <file>file:/F:/study/laravel/projects/cms/resources/views/myaccount/profile/index.blade.php</file>
+            <file>file:/F:/study/laravel/projects/cms/resources/lang/en/auth.php</file>
+            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/myaccount/master.blade.php</file>
+            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/myaccount/sidebar.blade.php</file>
+            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/front/nav.blade.php</file>
+            <file>file:/F:/study/laravel/projects/cms/app/Http/Controllers/MyAccount/ProfileController.php</file>
         </group>
     </open-files>
 </project-private>

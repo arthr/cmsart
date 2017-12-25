@@ -48,7 +48,7 @@
 
 
                 <li class=" ">
-                    <a href="{{ route('myaccount.profile') }}" class="no-link-effect">
+                    <a href="{{ Auth::check() ? route('myaccount.profile') : route('login') }}" class="link-effect-4">
                         <span class="nk-icon-toggle-front">
                             @guest
                             <span class="ion-lock-combination"></span>
@@ -62,33 +62,13 @@
                 </li>
 
                 @if(Auth::check())
-                <li class="single-icon">
-                    <a href="{{ route('logout') }}" class="no-link-effect">
+                <li class="single-icon hidden-xs">
+                    <a href="{{ route('logout') }}" class="link-effect-4">
                         <span class="ion-log-out"></span>
                         Logout
                     </a>
                 </li>
                 @endif
-
-                <!--                <li class=" ">
-                                    <a href="" onclick="return false;"class="nk-cart-toggle no-link-effect">
-                                        <span class="nk-icon-toggle" style="width: inherit;">
-                                            <span class="nk-icon-toggle-front">
-                                                @guest
-                                                <span class="ion-log-in"></span>
-                                                My Account
-                                                @else
-                                                <span class="ion-unlocked"></span>
-                                                {{ Auth::user()->name }}
-                                                @endguest
-                                            </span>
-                                            <span class="nk-icon-toggle-back">
-                                                <span class="ion-close"></span>
-                                                Close
-                                            </span>
-                                        </span>
-                                    </a>
-                                </li>-->
 
                 <li class="single-icon">
                     <a href="#" class="no-link-effect" data-nav-toggle="#nk-side">

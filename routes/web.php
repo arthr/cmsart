@@ -35,8 +35,10 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 //My Account Routes...
 Route::get('myaccount', 'MyAccount\ProfileController@index')->name('myaccount.profile');
+Route::get('myaccount/game-account', 'MyAccount\GameAccountController@index')->name('myaccount.game_account');
+Route::get('myaccount/characters', 'MyAccount\CharacterController@index')->name('myaccount.characters');
 Route::get('myaccount/donations', 'MyAccount\DonationController@index')->name('myaccount.donations');
+Route::get('myaccount/security', 'MyAccount\SecurityController@index')->name('myaccount.security');
 
 
-//Route::get('home', 'TestController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
