@@ -41,7 +41,7 @@
                     <a href="#" class="nk-btn nk-btn-xs link-effect-4">
                         <span>Account Settings</span>
                     </a>
-                    <div class="nk-social-groups-actions-meta">{{ $acc->characters->count() }} @account_status($acc->login)character(s)</div>
+                    <div class="nk-social-groups-actions-meta">{{ $acc->characters->count() }} character(s)</div>
                     
                 </div>
             </div>

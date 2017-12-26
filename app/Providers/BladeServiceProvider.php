@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+use App\Lineage\Account;
 
 class BladeServiceProvider extends ServiceProvider {
 
@@ -13,7 +14,7 @@ class BladeServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot() {
-        $this->accountStatus();
+        //
     }
 
     /**
@@ -24,11 +25,4 @@ class BladeServiceProvider extends ServiceProvider {
     public function register() {
         //
     }
-
-    protected function accountStatus() {
-        Blade::directive('account_status', function ($account_login) {
-            return "<?php var_dump(Account::where('login', $account_login)->first()->access_level); ?>";
-        });
-    }
-
 }
