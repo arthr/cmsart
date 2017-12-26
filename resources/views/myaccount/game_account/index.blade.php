@@ -1,18 +1,21 @@
 @extends('layout.myaccount.master')
 @section('myaccount')
-<div class="nk-gap-2 hidden-md-down"></div>
 <div class="nk-social-menu-inline">
     <ul>
-        <li class="active"><a href="#">Opt 1</a></li>
-        <li><a href="#">Opt 2</a></li>
-        <li><a href="#">Opt 3</a></li>
-        <li><a href="#">Opt 4</a></li>
-        <li><a href="#">Opt 5</a></li>
+        <li {{ (Request::is('myaccount/game-account') ? 'class=active' : '') }}>
+            <a href="{{ route('myaccount.game_account') }}">My Accounts</a>
+        </li>
+        <li>
+            <a href="#">New Account</a>
+        </li>
+        <li>
+            <a href="#">Share Account</a>
+        </li>
     </ul>
 </div>
 
 <div class="nk-social-container">
-    <form action="#" class="nk-social-sort" novalidate="novalidate">
+<!--    <form action="#" class="nk-social-sort" novalidate="novalidate">
         <label for="groups-filter-by">Order By:</label>
         <select id="groups-filter-by" class="form-control">
             <option value="last_active">Last Active</option>
@@ -20,8 +23,8 @@
             <option value="newly_created">Newly Created</option>
             <option value="alphabetical">Alphabetical</option>
         </select>
-    </form>
-    <div class="nk-gap"></div>
+    </form>-->
+    <!--<div class="nk-gap"></div>-->
     <!-- START: Groups -->
     <!--<div><em>Viewing 1 - 4 of 4 accounts</em></div>-->
     <div class="nk-gap"></div>
@@ -34,8 +37,8 @@
                     <div class="nk-social-groups-name">
                         <a href="#">{{ $acc->login }}</a>
                     </div>
-                    <div class="nk-social-groups-meta">2 min ago</div>
-                    <div class="nk-social-groups-description">account status: <font color="00ff00">active</font></div>
+                    <div class="nk-social-groups-meta">last login was {{ $acc->last_login }} ago</div>
+                    <div class="nk-social-groups-description">{{ trans('myaccount.profile_account_status') }}: <font color="00ff00">{{ trans($acc->account_status) }}</font></div>
                 </div>
                 <div class="nk-social-groups-actions">
                     <a href="#" class="nk-btn nk-btn-xs link-effect-4">
@@ -54,7 +57,7 @@
                         <a href="#">SEM CONTA TIO!</a>
                     </div>
                     <div class="nk-social-groups-meta">0 min ago</div>
-                    <div class="nk-social-groups-description">account status: <font color="ff0000">banned</font></div>
+                    <div class="nk-social-groups-description">account status: <font color="ff0000">xx</font></div>
                 </div>
                 <div class="nk-social-groups-actions">
                     <a href="#" class="nk-btn nk-btn-xs link-effect-4">
@@ -68,7 +71,7 @@
     </ul>
 
     <div class="nk-gap"></div>
-    <div><em>Viewing 1 - 4 of 4 accounts</em></div>
+<!--    <div><em>Viewing 1 - 4 of 4 accounts</em></div>-->
     <!-- END: Groups -->
 </div>
 <div class="nk-gap-5"></div>

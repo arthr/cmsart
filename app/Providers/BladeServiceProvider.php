@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
-use App\Lineage\Account;
 
 class BladeServiceProvider extends ServiceProvider {
 
@@ -25,4 +24,5 @@ class BladeServiceProvider extends ServiceProvider {
     public function register() {
         //
     }
+
 }

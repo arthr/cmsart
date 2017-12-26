@@ -12,7 +12,9 @@ class GameAccountController extends Controller {
     }
 
     public function index() {
-        auth()->user()->load('accounts.characters');
+        auth()->user()->load(['accounts' => function($query) {
+                $query->orderBy('lastactive', 'desc');
+            }, 'accounts.characters']);
         return view('myaccount.game_account.index');
     }
 
