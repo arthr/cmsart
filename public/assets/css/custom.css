@@ -14,6 +14,11 @@ form.nk-form input#terms {
     float: left;
 }
 
+.nk-social-container {
+    background-color: #0e0e0e;
+    padding: 30px 70px 70px;
+}
+
 @media (max-width:575px) {
     .hide-xs {
         visibility: hidden;

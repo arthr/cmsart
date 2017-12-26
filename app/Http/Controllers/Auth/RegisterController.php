@@ -65,7 +65,7 @@ use RegistersUsers;
         event(new Registered($user = $this->create($request->all())));
         //$this->guard()->login($user);
         return $this->registered($request, $user) ?: redirect($this->redirectPath())
-                        ->with('status', "Hi <strong>{$user->name}</strong>, thanks for signing up! Please check your email box.");
+                        ->with('status', "Hi <strong>{$user->name}</strong>, thanks for signing up! Please check your inbox.");
     }
 
     /**

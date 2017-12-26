@@ -3,15 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/study/laravel/projects/cms/app/User.php</file>
+            <file>file:/F:/study/laravel/projects/cms/app/Http/Controllers/MyAccount/GameAccountController.php</file>
+            <file>file:/F:/study/laravel/projects/cms/public/assets/css/custom.css</file>
             <file>file:/F:/study/laravel/projects/cms/resources/lang/en/myaccount.php</file>
+            <file>file:/F:/study/laravel/projects/cms/.env</file>
+            <file>file:/F:/study/laravel/projects/cms/app/UserAccount.php</file>
+            <file>file:/F:/study/laravel/projects/cms/app/User.php</file>
+            <file>file:/F:/study/laravel/projects/cms/app/Http/Controllers/Auth/RegisterController.php</file>
             <file>file:/F:/study/laravel/projects/cms/routes/web.php</file>
-            <file>file:/F:/study/laravel/projects/cms/resources/views/myaccount/profile/index.blade.php</file>
-            <file>file:/F:/study/laravel/projects/cms/resources/lang/en/auth.php</file>
-            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/myaccount/master.blade.php</file>
-            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/myaccount/sidebar.blade.php</file>
-            <file>file:/F:/study/laravel/projects/cms/resources/views/layout/front/nav.blade.php</file>
-            <file>file:/F:/study/laravel/projects/cms/app/Http/Controllers/MyAccount/ProfileController.php</file>
+            <file>file:/F:/study/laravel/projects/cms/app/Lineage/Account.php</file>
+            <file>file:/F:/study/laravel/projects/cms/resources/views/myaccount/game_account/index.blade.php</file>
         </group>
     </open-files>
 </project-private>
