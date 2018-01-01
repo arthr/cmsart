@@ -27,7 +27,7 @@ use AuthenticatesUsers;
      *
      * @var string
      */
-    protected $redirectTo = '/myaccount';
+    protected $redirectTo = '/myaccount/profile';
 
     /**
      * Create a new controller instance.

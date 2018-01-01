@@ -4,13 +4,16 @@ namespace App\Lineage;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use App\User;
+use App\Lineage\Character;
+use App\UserAccount;
 
 class Account extends Model {
 
-    protected $connection = 'lineage';
-    protected $table = 'loginserver.accounts';
+    protected $connection = 'loginserver';
+    protected $table = 'accounts';
     protected $fillable = [
-        'login', 'password', 'lastactive', 'access_level', 'lastIP', 'lastServer'
+        'login', 'password', 'lastactive', 'access_level'
     ];
     public $incrementing = false;
     protected $primaryKey = 'login';
@@ -21,8 +24,9 @@ class Account extends Model {
     ];
 
     public function user() {
-        return $this->belongsTo(User::class, 'login', 'id', UserAccount::class);
+        return $this->belongsToMany(User::class, 'user_accounts', 'login', 'user_id', 'login', 'id', UserAccount::class);
     }
+
 
     public function characters() {
         return $this->hasMany(Character::class, 'account_name');
@@ -31,19 +35,22 @@ class Account extends Model {
     public function getAccountStatusAttribute() {
         switch ($this->access_level):
             case 0:
-                $status = trans('myaccount.profile_account_status_active');
+                $status = trans('myaccount.game_account_status_active');
                 break;
             case 100:
-                $status = trans('myaccount.profile_account_status_administrator');
+                $status = trans('myaccount.game_account_status_administrator');
+                break;
+            case -10:
+                $status = trans('myaccount.game_account_status_blocked');
                 break;
             case -100:
-                $status = trans('myaccount.profile_account_status_banned');
+                $status = trans('myaccount.game_account_status_banned');
                 break;
             case $this->access_level > 10:
-                $status = trans('myaccount.profile_account_status_gamemaster');
+                $status = trans('myaccount.game_account_status_gamemaster');
                 break;
             default:
-                $status = trans('myaccount.profile_account_status_unknown');
+                $status = trans('myaccount.game_account_status_unknown');
         endswitch;
 
         return $status;
@@ -51,7 +58,7 @@ class Account extends Model {
 
     public function getLastLoginAttribute() {
         $now = Carbon::now();
-        return $this->getDateHumanDiff($now->timestamp,(int)($this->lastactive / 1000));
+        return $this->lastactive ? $this->getDateHumanDiff($now->timestamp, (int) ($this->lastactive / 1000)) : 0;
     }
 
     /**

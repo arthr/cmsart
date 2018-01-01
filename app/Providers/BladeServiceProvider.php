@@ -13,7 +13,7 @@ class BladeServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot() {
-        //
+        $this->lastLogin();
     }
 
     /**
@@ -23,6 +23,12 @@ class BladeServiceProvider extends ServiceProvider {
      */
     public function register() {
         //
+    }
+    
+    protected function lastLogin() {
+        Blade::directive('accountLastLogin', function($lastLogin){
+            return "<?php echo trans_choice('myaccount.game_account_last_login', $lastLogin, ['lastLogin' => $lastLogin]); ?>";
+        });
     }
 
 }

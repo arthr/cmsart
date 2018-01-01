@@ -12,11 +12,11 @@
 
         <div class="nk-social-menu hidden-md-down">
             <ul>
-                <li {{ (Request::is('myaccount') ? 'class=active' : '') }}><a href="{{ route('myaccount.profile') }}">Profile</a></li>
-                <li {{ (Request::is('myaccount/game-account') ? 'class=active' : '') }}><a href="{{ route('myaccount.game_account') }}">Game Account</a></li>
-                <li {{ (Request::is('myaccount/characters') ? 'class=active' : '') }}><a href="{{ route('myaccount.characters') }}">Characters</a></li>
-                <li {{ (Request::is('myaccount/donations') ? 'class=active' : '') }}><a href="{{ route('myaccount.donations') }}">Donations History</a></li>
-                <li {{ (Request::is('myaccount/security') ? 'class=active' : '') }}><a href="{{ route('myaccount.security') }}">Account Security</a></li>
+                <li class="{{ (Request::is('myaccount/profile*') ? 'active' : '') }}"><a href="{{ route('myaccount.profile.index') }}">Profile</a></li>
+                <li class="{{ (Request::is('myaccount/game-account*') ? 'active' : '') }}"><a href="{{ route('myaccount.game_account.index') }}">Game Account</a></li>
+                <li class="{{ (Request::is('myaccount/characters*') ? 'active' : '') }}"><a href="{{ route('myaccount.characters') }}">Characters</a></li>
+                <li class="{{ (Request::is('myaccount/donations*') ? 'active' : '') }}"><a href="{{ route('myaccount.donations') }}">Donations History</a></li>
+                <li class="{{ (Request::is('myaccount/security*') ? 'active' : '') }}"><a href="{{ route('myaccount.security') }}">Account Security</a></li>
                 <li><a href="#">Messages<span class="nk-badge">12</span></a></li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="{{ route('logout') }}">Logout</a></li>
@@ -29,8 +29,8 @@
                 <div id="nk-social-menu-mobile-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="nk-social-menu-mobile-1-heading">
                     <div class="nk-social-menu">
                         <ul>
-                            <li {{ (Request::is('myaccount') ? 'class=active' : '') }}><a href="{{ route('myaccount.profile') }}">Profile</a></li>
-                            <li {{ (Request::is('myaccount/game-account') ? 'class=active' : '') }}><a href="{{ route('myaccount.game_account') }}">Game Account</a></li>
+                            <li {{ (Request::is('myaccount') ? 'class=active' : '') }}><a href="{{ route('myaccount.profile.index') }}">Profile</a></li>
+                            <li {{ (Request::is('myaccount/game-account*') ? 'class=active' : '') }}><a href="{{ route('myaccount.game_account.index') }}">Game Account</a></li>
                             <li {{ (Request::is('myaccount/characters') ? 'class=active' : '') }}><a href="{{ route('myaccount.characters') }}">Characters</a></li>
                             <li {{ (Request::is('myaccount/donations') ? 'class=active' : '') }}><a href="{{ route('myaccount.donations') }}">Donations History</a></li>
                             <li {{ (Request::is('myaccount/security') ? 'class=active' : '') }}><a href="{{ route('myaccount.security') }}">Account Security</a></li>

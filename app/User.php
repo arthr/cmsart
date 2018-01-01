@@ -11,7 +11,7 @@ class User extends Authenticatable {
     use Traits\RelationshipsTrait;
 
     protected $connection = 'mysql';
-    protected $table = 'cms.users';
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.

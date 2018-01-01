@@ -33,13 +33,43 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-//My Account Routes...
-Route::get('myaccount', 'MyAccount\ProfileController@index')->name('myaccount.profile');
-Route::get('myaccount/game-account', 'MyAccount\GameAccountController@index')->name('myaccount.game_account');
-Route::get('myaccount/game-account/new', 'MyAccount\GameAccountController@index')->name('myaccount.game_account.new');
-Route::get('myaccount/characters', 'MyAccount\CharacterController@index')->name('myaccount.characters');
-Route::get('myaccount/donations', 'MyAccount\DonationController@index')->name('myaccount.donations');
-Route::get('myaccount/security', 'MyAccount\SecurityController@index')->name('myaccount.security');
+//My Account Routes Group...
+Route::group(['middleware' => 'auth', 'prefix' => 'myaccount', 'as' => 'myaccount.', 'namespace' => 'MyAccount'], function() {
+    //Profile
+    Route::group(['prefix' => 'profile', 'as' => 'profile.'], function() {
+        Route::get('/', 'ProfileController@index')
+                ->name('index');
+    });
+
+    //Game Account
+    Route::group(['prefix' => 'game-account', 'as' => 'game_account.'], function() {
+        Route::get('/', 'GameAccountController@index')
+                ->name('index');
+        Route::get('create', 'GameAccountController@create')
+                ->name('create');
+        Route::post('store', 'GameAccountController@store')
+                ->name('store');
+
+        Route::group(['prefix' => 'settings/{login}'], function() {
+            Route::get('/', 'GameAccountController@settings')
+                    ->name('settings');
+            Route::post('update', 'GameAccountController@update')
+                    ->name('update');
+            Route::post('destroy', 'GameAccountController@destroy')
+                    ->name('destroy');
+        });
+    });
+
+    //Characters
+    Route::get('characters', 'CharacterController@index')
+            ->name('characters');
+    //Donations
+    Route::get('donations', 'DonationController@index')
+            ->name('donations');
+    //Security
+    Route::get('security', 'SecurityController@index')
+            ->name('security');
+});
 
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -48,7 +48,7 @@
 
 
                 <li class=" ">
-                    <a href="{{ Auth::check() ? route('myaccount.profile') : route('login') }}" class="link-effect-4">
+                    <a href="{{ Auth::check() ? route('myaccount.profile.index') : route('login') }}" class="link-effect-4">
                         <span class="nk-icon-toggle-front">
                             @guest
                             <span class="ion-lock-combination"></span>
