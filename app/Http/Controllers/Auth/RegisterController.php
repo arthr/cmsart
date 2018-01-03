@@ -2,28 +2,29 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Http\Request;
-use Illuminate\Auth\Events\Registered;
 use App\Notifications\SendConfirmation;
+use App\User;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
-class RegisterController extends Controller {
+class RegisterController extends Controller
+{
     /*
-      |--------------------------------------------------------------------------
-      | Register Controller
-      |--------------------------------------------------------------------------
-      |
-      | This controller handles the registration of new users as well as their
-      | validation and creation. By default this controller uses a trait to
-      | provide this functionality without requiring any additional code.
-      |
+    |--------------------------------------------------------------------------
+    | Register Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles the registration of new users as well as their
+    | validation and creation. By default this controller uses a trait to
+    | provide this functionality without requiring any additional code.
+    |
      */
 
-use RegistersUsers;
+    use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
@@ -37,7 +38,8 @@ use RegistersUsers;
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('guest');
     }
 
@@ -46,7 +48,8 @@ use RegistersUsers;
      *
      * @return string
      */
-    public function redirectPath() {
+    public function redirectPath()
+    {
         if (method_exists($this, 'redirectTo')) {
             return $this->redirectTo();
         }
@@ -60,12 +63,13 @@ use RegistersUsers;
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function register(Request $request) {
+    public function register(Request $request)
+    {
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
         //$this->guard()->login($user);
         return $this->registered($request, $user) ?: redirect($this->redirectPath())
-                        ->with('status', "Hi <strong>{$user->name}</strong>, thanks for signing up! Please check your inbox.");
+            ->with('status', "Hi <strong>{$user->name}</strong>, thanks for signing up! Please check your inbox.");
     }
 
     /**
@@ -75,7 +79,8 @@ use RegistersUsers;
      * @param  mixed  $user
      * @return mixed
      */
-    protected function registered(Request $request, $user) {
+    protected function registered(Request $request, $user)
+    {
         $user->notify(new SendConfirmation($user));
     }
 
@@ -85,11 +90,12 @@ use RegistersUsers;
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data) {
+    protected function validator(array $data)
+    {
         return Validator::make($data, [
-                    'name' => 'required|string|max:255',
-                    'email' => 'required|string|email|max:255|unique:users',
-                    'password' => 'required|string|min:6|confirmed',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
         ]);
     }
 
@@ -99,12 +105,13 @@ use RegistersUsers;
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data) {
+    protected function create(array $data)
+    {
         return User::create([
-                    'name' => $data['name'],
-                    'email' => $data['email'],
-                    'password' => bcrypt($data['password']),
-                    'confirmation_code' => md5(uniqid(rand(), true)),
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'confirmation_code' => md5(uniqid(rand(), true)),
         ]);
     }
 
@@ -113,21 +120,23 @@ use RegistersUsers;
      *
      * @return \Illuminate\Http\Response
      */
-    public function confirmation($confirmation_code) {
+    public function confirmation($confirmation_code)
+    {
         $user = User::where('confirmation_code', $confirmation_code)->firstOrFail();
         $user->confirmed = 1;
         $user->confirmation_code = null;
         $user->save();
         $this->guard()->login($user);
-        return redirect(route('myaccount.profile'))->with('status', trans('auth.confirmation_complete'));
+        return redirect(route('myaccount.profile.index'))->with('status', trans('auth.confirmation_complete'));
     }
 
     /**
      * Resend email confirmation
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
-    public function resendConfirmation(Request $request) {
+    public function resendConfirmation(Request $request)
+    {
         if ($request->isMethod('POST')) {
             $user = User::where(['email' => $request->only('email'), 'confirmed' => 0])->first();
 
@@ -145,11 +154,12 @@ use RegistersUsers;
 
     /**
      * Get failed email response
-     * 
+     *
      * @param Request $request
      * @throws type
      * */
-    protected function sendFailedEmailResponse(Request $request) {
+    protected function sendFailedEmailResponse(Request $request)
+    {
         throw ValidationException::withMessages([
             'email' => [trans('auth.confirmation_not_found')],
         ]);
