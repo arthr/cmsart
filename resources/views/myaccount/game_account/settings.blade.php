@@ -32,7 +32,7 @@
         </div>
     @endif
 
-    <form action="{{ route('myaccount.game_account.destroy', $account->login) }}" method="post">
+    <form action="{{ route('myaccount.game_account.update', $account->login) }}" method="post">
         {{ csrf_field() }}
 
         <input type="text" name="login" id="login" disabled class="form-control required" placeholder="Login" value="{{ $account->login }}" />

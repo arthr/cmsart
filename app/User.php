@@ -32,7 +32,7 @@ class User extends Authenticatable {
     ];
 
     public function accounts() {
-        return $this->hasManyThrough(Lineage\Account::class, UserAccount::class, 'user_id', 'login', 'id', 'login');
+        return $this->hasMany(Lineage\Account::class, 'user_id');
     }
 
 }

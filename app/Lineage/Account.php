@@ -2,37 +2,45 @@
 
 namespace App\Lineage;
 
-use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
-use App\User;
 use App\Lineage\Character;
+use App\User;
 use App\UserAccount;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model {
+class Account extends Model
+{
 
     protected $connection = 'loginserver';
     protected $table = 'accounts';
     protected $fillable = [
-        'login', 'password', 'lastactive', 'access_level'
+        'login', 'password', 'lastactive', 'access_level',
     ];
     public $incrementing = false;
     protected $primaryKey = 'login';
     protected $keyType = 'string';
     public $timestamps = false;
     protected $appends = [
-        'account_status', 'last_login'
+        'account_status', 'last_login',
     ];
 
-    public function user() {
-        return $this->belongsToMany(User::class, 'user_accounts', 'login', 'user_id', 'login', 'id', UserAccount::class);
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-
-    public function characters() {
+    public function characters()
+    {
         return $this->hasMany(Character::class, 'account_name');
     }
 
-    public function getAccountStatusAttribute() {
+    public function delete(){
+        $this->access_level = -50;
+        return parent::update();
+    }
+
+    public function getAccountStatusAttribute()
+    {
         switch ($this->access_level):
             case 0:
                 $status = trans('myaccount.game_account_status_active');
@@ -50,13 +58,14 @@ class Account extends Model {
                 $status = trans('myaccount.game_account_status_gamemaster');
                 break;
             default:
-                $status = trans('myaccount.game_account_status_unknown');
+            $status = trans('myaccount.game_account_status_unknown');
         endswitch;
 
         return $status;
     }
 
-    public function getLastLoginAttribute() {
+    public function getLastLoginAttribute()
+    {
         $now = Carbon::now();
         return $this->lastactive ? $this->getDateHumanDiff($now->timestamp, (int) ($this->lastactive / 1000)) : 0;
     }
@@ -70,15 +79,16 @@ class Account extends Model {
      * - with precision = 1 : 3 days
      * - with precision = 2 : 3 days, 4 hours
      * - with precision = 3 : 3 days, 4 hours, 12 minutes
-     * 
+     *
      * From: http://www.if-not-true-then-false.com/2010/php-calculate-real-differences-between-two-dates-or-timestamps/
      *
      * @param mixed $time1 a time (string or timestamp)
      * @param mixed $time2 a time (string or timestamp)
-     * @param integer $precision Optional precision 
+     * @param integer $precision Optional precision
      * @return string time difference
      */
-    private function getDateHumanDiff($time1, $time2, $precision = 2) {
+    private function getDateHumanDiff($time1, $time2, $precision = 2)
+    {
         // If not numeric then convert timestamps
         if (!is_int($time1)) {
             $time1 = strtotime($time1);
@@ -88,7 +98,7 @@ class Account extends Model {
         }
         // If time1 > time2 then swap the 2 values
         if ($time1 > $time2) {
-            list( $time1, $time2 ) = array($time2, $time1);
+            list($time1, $time2) = array($time2, $time1);
         }
         // Set up intervals and diffs arrays
         $intervals = array('year', 'month', 'day', 'hour', 'minute', 'second');
