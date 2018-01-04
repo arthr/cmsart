@@ -78,24 +78,36 @@ class GameAccountController extends Controller
             $query->where([['access_level', '<>', '-50']]);
         }])->accounts->contains($account);
 
-        if($exists){
+        if ($exists) {
             $messages = [
                 'g-recaptcha-response.required' => trans('myaccount.game_account_create_captcha_required'),
                 'g-recaptcha-response.validation.captcha' => 'validacao captcha',
             ];
-    
-            $validator = Validator::make($request->all(), [
-                'password' => 'required|min:6',
+
+            $validator = Validator::make(\Request::all(), [
+                'password' => 'nullable|min:6',
                 'g-recaptcha-response' => 'required',
             ], $messages);
-    
+
             if ($validator->fails()) {
-                return redirect(route('myaccount.game_account.update'))
-                    ->withErrors($validator)
-                    ->withInput();
+                return redirect()
+                    ->back()
+                    ->withErrors($validator);
             }
 
+            if (\Request::input('password')) {
+                $account->password = base64_encode(\Request::input('password'));
+            }
+            $account->access_level = \Request::has('block') ? -10 : 0;
+            $account->update();
+
+            return redirect()
+                ->back()
+                ->with(['status' => trans('myaccount.game_account_settings_update_success')]);
         }
+
+        return redirect()
+            ->route('myaccount.game_account.settings');
     }
 
     public function destroy($login)

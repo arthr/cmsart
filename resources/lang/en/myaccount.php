@@ -13,6 +13,7 @@ return [
     'game_account_last_login' => "{0} never logged in|" .
         "[1,Inf] last login was :lastLogin ago",
     
+    'game_account_status_no_account' => 'You dont have any account yet. Click on the right button to create a new one.',
     'game_account_status' => 'Account Status',
     'game_account_status_active' => 'Active',
     'game_account_status_banned' => 'Banned',
@@ -26,6 +27,7 @@ return [
     'game_account_create_success' => 'Your game account has been created with success.',
     
     'game_account_settings_notification' => 'You can block/unblock your account at any moment.',
+    'game_account_settings_update_success' => 'Your account has been updated with success.',
     'game_account_settings_delete_confirmation' => 'If your are sure to proceed, confirm your login bellow:',
     'game_account_settings_delete_success' => 'Your account has been deleted with success.',
     'game_account_settings_delete_fail' => 'You typed a wrong login confirmation. Please try again.',

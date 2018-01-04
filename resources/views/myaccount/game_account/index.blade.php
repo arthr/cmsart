@@ -38,8 +38,9 @@
 	<!--<div><em>Viewing 1 - 4 of 4 accounts</em></div>-->
 	<div class="nk-gap"></div>
 
+	@if(!auth()->user()->accounts->isEmpty())
 	<ul class="nk-social-groups">
-		@forelse(auth()->user()->accounts as $acc)
+		@foreach(auth()->user()->accounts as $acc)
 		<li>
 			<div class="nk-social-groups-content">
 				<div class="nk-social-groups-info">
@@ -48,7 +49,7 @@
 					</div>
 					<div class="nk-social-groups-meta">@accountLastLogin($acc->last_login)</div>
 					<div class="nk-social-groups-description">{{ trans('myaccount.game_account_status') }}:
-						<font color="00ff00">{{ trans($acc->account_status) }}</font>
+						<font color="{{ $acc->access_level == '-100' ? 'ff0000' : '00ff00' }}">{{ trans($acc->account_status) }}</font>
 					</div>
 				</div>
 				<div class="nk-social-groups-actions">
@@ -60,29 +61,15 @@
 				</div>
 			</div>
 		</li>
-		@empty
-		<li>
-			<div class="nk-social-groups-content">
-				<div class="nk-social-groups-info">
-					<div class="nk-social-groups-name">
-						<a href="#">SEM CONTA TIO!</a>
-					</div>
-					<div class="nk-social-groups-meta">0 min ago</div>
-					<div class="nk-social-groups-description">account status:
-						<font color="ff0000">xx</font>
-					</div>
-				</div>
-				<div class="nk-social-groups-actions">
-					<a href="#" class="nk-btn nk-btn-xs link-effect-4">
-						<span>Account Settings</span>
-					</a>
-					<div class="nk-social-groups-actions-meta">1 character(s)</div>
-				</div>
-			</div>
-		</li>
-		@endforelse
+		@endforeach
 	</ul>
-
+	@else
+	<h2>Hey, Man!</h2>
+	<div>
+		<em>{{ trans('myaccount.game_account_status_no_account') }}</em>
+		<a class="nk-btn nk-btn-xs pull-right" href="{{ route('myaccount.game_account.create') }}" title="Delete Conversation">New Account</a>
+	</div>
+	@endif
 	<div class="nk-gap"></div>
 	<!--    <div><em>Viewing 1 - 4 of 4 accounts</em></div>-->
 	<!-- END: Groups -->

@@ -17,6 +17,7 @@ class CharacterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
+        $user = User::find(auth()->id())->with('accounts');
         return view('myaccount.characters.index');
     }
 
