@@ -20,7 +20,7 @@ class GameAccountController extends Controller
     public function index()
     {
         auth()->user()->load(['accounts' => function ($query) {
-            $query->where([['access_level', '<>', '-50']])->orderBy('lastactive', 'desc')->orderBy('login', 'asc');
+            $query->orderBy('lastactive', 'desc')->orderBy('login', 'asc');
         }, 'accounts.characters']);
         return view('myaccount.game_account.index');
     }
@@ -35,10 +35,16 @@ class GameAccountController extends Controller
         $messages = [
             'g-recaptcha-response.required' => trans('myaccount.game_account_create_captcha_required'),
             'g-recaptcha-response.validation.captcha' => 'validacao captcha',
+            'maxaccount' => trans('validation.maxaccount', ['limit' => 10]),
         ];
 
+        Validator::extend('maxaccount', function ($attribute, $value, $parameters) {
+            $totalAccounts = Auth::user()->accounts()->count();
+            return ($totalAccounts < $parameters[0]);
+        });
+
         $validator = Validator::make($request->all(), [
-            'login' => 'required|min:4|alpha_num|unique:loginserver.accounts,login',
+            'login' => 'required|min:4|alpha_num|unique:loginserver.accounts,login|maxaccount:10',
             'password' => 'required|min:6',
             'g-recaptcha-response' => 'required',
         ], $messages);
@@ -65,18 +71,14 @@ class GameAccountController extends Controller
     public function settings($login)
     {
         $account = Account::find($login);
-        $exists = auth()->user()->load(['accounts' => function ($query) {
-            $query->where([['access_level', '<>', '-50']]);
-        }])->accounts->contains($account);
+        $exists = auth()->user()->accounts->contains($account);
         return $exists ? view('myaccount.game_account.settings')->with('account', $account) : redirect(route('myaccount.game_account.index'));
     }
 
     public function update($login)
     {
         $account = Account::find($login);
-        $exists = auth()->user()->load(['accounts' => function ($query) {
-            $query->where([['access_level', '<>', '-50']]);
-        }])->accounts->contains($account);
+        $exists = auth()->user()->accounts->contains($account);
 
         if ($exists) {
             $messages = [
@@ -114,9 +116,7 @@ class GameAccountController extends Controller
     {
         $user = User::find(auth()->id());
         $account = Account::find($login)->load('user');
-        $exists = auth()->user()->load(['accounts' => function ($query) {
-            $query->where([['access_level', '<>', '-50']]);
-        }])->accounts->contains($account);
+        $exists = auth()->user()->accounts->contains($account);
 
         if ($exists && $account->login == \Request::input('login')) {
             $account->delete();

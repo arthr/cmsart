@@ -1,15 +1,18 @@
 form.nk-form label {
     width: 100%;
 }
+
 form.nk-form input#terms {
     width: auto;
     float: left;
     margin-top: 8px;
     margin-right: 5px;
 }
+
 .nk-product-bottom {
     margin-top: -1px;
 }
+
 .nk-social-profile .nk-social-profile-info-last-seen {
     float: left;
 }
@@ -17,6 +20,30 @@ form.nk-form input#terms {
 .nk-social-container {
     background-color: #0e0e0e;
     padding: 30px 70px 70px;
+}
+
+.nk-social-friends .nk-social-friends-actions {
+    text-align: right;
+    float: right;
+    position: absolute;
+    right: 0;
+}
+
+.nk-social-friends .nk-social-friends-info {
+    float: left;
+    width: 100%;
+}
+
+
+/*
+* Lineage Styles
+*/
+.nk-social-friends .nk-social-friends-avatar img {
+    border-radius: inherit;
+}
+.nk-pagination {
+    margin-bottom: -40px;
+    margin-top: 20px;
 }
 
 @media (max-width:575px) {
@@ -34,5 +61,10 @@ form.nk-form input#terms {
         font-size: 65px;
         padding: 30px 0 100px;
         text-align: center;
+    }
+    .nk-social-friends .nk-social-friends-actions {
+        text-align: right;
+        float: right;
+        position: inherit;
     }
 }

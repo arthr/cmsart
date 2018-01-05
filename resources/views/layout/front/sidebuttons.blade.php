@@ -4,9 +4,11 @@
 -->
 <div class="nk-side-buttons nk-side-buttons-visible">
     <ul>
+        @guest
         <li>
             <a href="{{ route('register') }}" class="nk-btn nk-btn-lg nk-btn-color-main-1 link-effect-4 ready">Register</a>
         </li>
+        @endguest
         <li>
             <span class="nk-btn nk-btn-lg nk-btn-icon nk-bg-audio-toggle">
                 <span class="icon">

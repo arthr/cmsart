@@ -10,8 +10,16 @@ return [
     'profile_since' => 'Registered Since',
     'profile_ingame_accounts' => 'In Game Accounts',
     
+    
     'game_account_last_login' => "{0} never logged in|" .
         "[1,Inf] last login was :lastLogin ago",
+
+    'game_account_character_last_access' => "{0} no activity|" .
+        "[1,Inf] last activity was :lastAccess",
+    'game_account_no_characters_online' => 'no characters online',
+    'game_account_total_characters_online' => "{0} no characters online|" .
+        "{1} you have :charCount character online right now|" .
+        "[2,Inf] you have :charCount characters online right now",
     
     'game_account_status_no_account' => 'You dont have any account yet. Click on the right button to create a new one.',
     'game_account_status' => 'Account Status',

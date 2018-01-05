@@ -104,6 +104,7 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
+    'maxaccount' => 'You reach the limit of :limit accounts.',
 
     /*
     |--------------------------------------------------------------------------

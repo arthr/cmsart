@@ -70,7 +70,7 @@
 		<a class="nk-btn nk-btn-xs pull-right" href="{{ route('myaccount.game_account.create') }}" title="Delete Conversation">New Account</a>
 	</div>
 	@endif
-	<div class="nk-gap"></div>
+	{{-- <div class="nk-gap"></div> --}}
 	<!--    <div><em>Viewing 1 - 4 of 4 accounts</em></div>-->
 	<!-- END: Groups -->
 </div>
