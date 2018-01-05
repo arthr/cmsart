@@ -37,6 +37,10 @@ class Character extends Model
         return $this->belongsTo(CharacterClass::class, 'classid');
     }
 
+    public function hero() {
+        return $this->hasOne(Hero::class, 'charId');
+    }
+
     public function getLastLoginAttribute()
     {
         return $this->lastAccess ? Carbon::createFromTimestamp($this->lastAccess / 1000)->diffForHumans() : 0;

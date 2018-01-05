@@ -20,12 +20,12 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        $characters = User::find(auth()->id())->characters()->orderBy('lastAccess', 'desc')->paginate(3);
-        // $characters = User::find(auth()->id())->characters()->paginate(5)->sortByDesc(function ($obj, $key) {
-        //     return \Carbon\Carbon::createFromTimestamp($obj->lastAccess / 1000)->format('Y-m-d H:m:s');
-        // });
+        $order = \Request::has('order') ? \Request::input('order') : 'lastAccess';
+        $orientation = $order == 'char_name' ? 'asc' : 'desc';
+        $characters = User::find(auth()->id())->characters()->orderBy($order, $orientation)->paginate(3);
+        $characters->appends(['order' => $order])->render();
 
-        return view('myaccount.characters.index')->with('characters', $characters);
+        return view('myaccount.characters.index', compact('characters'));
     }
 
     /**

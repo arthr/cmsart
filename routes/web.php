@@ -61,7 +61,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'myaccount', 'as' => 'myaccoun
 
     //Characters
     Route::group(['prefix' => 'characters', 'as' => 'characters.'], function () {
-        Route::get('/', 'CharacterController@index')
+        Route::any('/', 'CharacterController@index')
             ->name('index');
     });
     //Donations

@@ -1,3 +1,4 @@
+@import url('rpg-awesome.min.css');
 form.nk-form label {
     width: 100%;
 }
@@ -38,12 +39,50 @@ form.nk-form input#terms {
 /*
 * Lineage Styles
 */
+
 .nk-social-friends .nk-social-friends-avatar img {
     border-radius: inherit;
 }
+
 .nk-pagination {
     margin-bottom: -40px;
     margin-top: 20px;
+}
+
+i.is-nobless {
+    color: #FFFF00;
+    line-height: inherit;
+    font-size: 25px;
+    text-align: center;
+    margin: auto;
+    display: block;
+    margin-right: 25px;
+}
+
+i.is-nobless:after {
+    content: 'Noblesse';
+    font-size: 10px;
+    display: block;
+    margin-top: -10px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+i.is-hero {
+    color: #FFFF00;
+    line-height: inherit;
+    font-size: 25px;
+    text-align: center;
+    margin: auto;
+    display: block;
+    margin-right: 25px;
+}
+
+i.is-hero:after {
+    content: 'Hero';
+    font-size: 10px;
+    display: block;
+    margin-top: -10px;
+    font-family: "Roboto Condensed", sans-serif;
 }
 
 @media (max-width:575px) {
