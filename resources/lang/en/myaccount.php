@@ -21,6 +21,7 @@ return [
         "{1} you have :charCount character online right now|" .
         "[2,Inf] you have :charCount characters online right now",
     
+    'game_account_status_no_account_title' => 'Time to play!',
     'game_account_status_no_account' => 'You dont have any account yet. Click on the right button to create a new one.',
     'game_account_status' => 'Account Status',
     'game_account_status_active' => 'Active',
@@ -40,5 +41,8 @@ return [
     'game_account_settings_delete_success' => 'Your account has been deleted with success.',
     'game_account_settings_delete_fail' => 'You typed a wrong login confirmation. Please try again.',
 
-    
+    'characters_no_characters' => 'You dont have any charater yet. Log in the game to create a new one.',
+    'characters_no_characters_title' => 'It\'s a little quiet here...',
+
+
 ];

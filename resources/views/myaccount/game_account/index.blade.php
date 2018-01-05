@@ -64,7 +64,7 @@
 		@endforeach
 	</ul>
 	@else
-	<h2>Hey, Man!</h2>
+	<h2>@lang('myaccount.game_account_status_no_account_title') <i class="ra ra-stopwatch"></i></h2>
 	<div>
 		<em>{{ trans('myaccount.game_account_status_no_account') }}</em>
 		<a class="nk-btn nk-btn-xs pull-right" href="{{ route('myaccount.game_account.create') }}" title="Delete Conversation">New Account</a>

@@ -7,6 +7,7 @@
 	</ul>
 </div>
 <div class="nk-social-container">
+	@if(!$characters->isEmpty())
 	<form id="charFilterForm" method="post" action={{ route( 'myaccount.characters.index') }} class="nk-social-sort" novalidate="novalidate">
 		{{ csrf_field() }}
 		<label for="order">Order By:</label>
@@ -23,7 +24,6 @@
 		<em>Viewing 1 - 4 of 4 friends</em>
 	</div>
 	<div class="nk-gap"></div> --}}
-
 	<ul class="nk-social-friends nk-social-activity">
 		@foreach($characters as $char)
 		<li>
@@ -80,7 +80,15 @@
 		</li>
 		@endforeach
 	</ul>
-	{{ $characters->links('pagination.myaccount') }} {{--
+	{{ $characters->links('pagination.myaccount') }}
+	@else
+	<div class="nk-gap"></div>
+	<h2>@lang('myaccount.characters_no_characters_title') <i class="ra ra-tombstone"></i></h2>
+	<div>
+		<em>{{ trans('myaccount.characters_no_characters') }}</em>
+	</div>
+	@endif
+	 {{--
 	<div class="nk-gap"></div>
 	<div>
 		<em>Viewing 1 - 4 of 4 friends</em>
