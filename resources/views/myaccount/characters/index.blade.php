@@ -70,11 +70,11 @@
 					</div>
 				</div>
 
-				<div class="nk-social-friends-actions">
+				{{--  <div class="nk-social-friends-actions">
 					<a href="#{{ $char->obj_Id }}" class="nk-btn nk-btn-xs link-effect-4">
 						<span>More Informations</span>
 					</a>
-				</div>
+				</div>  --}}
 			</div>
 
 		</li>

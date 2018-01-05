@@ -39,4 +39,6 @@ return [
     'game_account_settings_delete_confirmation' => 'If your are sure to proceed, confirm your login bellow:',
     'game_account_settings_delete_success' => 'Your account has been deleted with success.',
     'game_account_settings_delete_fail' => 'You typed a wrong login confirmation. Please try again.',
+
+    
 ];
