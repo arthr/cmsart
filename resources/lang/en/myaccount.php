@@ -44,5 +44,7 @@ return [
     'characters_no_characters' => 'You dont have any charater yet. Log in the game to create a new one.',
     'characters_no_characters_title' => 'It\'s a little quiet here...',
 
+    
+
 
 ];
