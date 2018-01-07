@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use App\Helpers\Telnet;
-use App\Helpers\TelnetA;
 
 class CharacterController extends Controller
 {
