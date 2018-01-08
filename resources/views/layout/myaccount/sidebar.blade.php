@@ -15,7 +15,7 @@
                 <li {{ (Request::is('myaccount') ? 'class=active' : '') }}><a href="{{ route('myaccount.profile.index') }}">Profile</a></li>
                 <li {{ (Request::is('myaccount/game-account*') ? 'class=active' : '') }}><a href="{{ route('myaccount.game_account.index') }}">Game Accounts<span class="nk-badge">{{ Auth::user()->accounts->count()}}</span></a></li>
                 <li {{ (Request::is('myaccount/characters') ? 'class=active' : '') }}><a href="{{ route('myaccount.characters.index') }}">Characters<span class="nk-badge">{{ Auth::user()->characters->count()}}</span></a></li>
-                <li {{ (Request::is('myaccount/donations') ? 'class=active' : '') }}><a href="{{ route('myaccount.donations') }}">Donations History</a></li>
+                <li {{ (Request::is('myaccount/donations') ? 'class=active' : '') }}><a href="{{ route('myaccount.donations') }}">Donations</a></li>
                 <li {{ (Request::is('myaccount/security') ? 'class=active' : '') }}><a href="{{ route('myaccount.security') }}">Account Security</a></li>
                 {{--  <li><a href="#">Messages<span class="nk-badge">12</span></a></li>
                 <li><a href="#">Settings</a></li>  --}}
@@ -32,7 +32,7 @@
                             <li {{ (Request::is('myaccount') ? 'class=active' : '') }}><a href="{{ route('myaccount.profile.index') }}">Profile</a></li>
                             <li {{ (Request::is('myaccount/game-account*') ? 'class=active' : '') }}><a href="{{ route('myaccount.game_account.index') }}">Game Accounts</a></li>
                             <li {{ (Request::is('myaccount/characters') ? 'class=active' : '') }}><a href="{{ route('myaccount.characters.index') }}">Characters<span class="nk-badge">{{ Auth::user()->characters->count()}}</span></a></li>
-                            <li {{ (Request::is('myaccount/donations') ? 'class=active' : '') }}><a href="{{ route('myaccount.donations') }}">Donations History</a></li>
+                            <li {{ (Request::is('myaccount/donations') ? 'class=active' : '') }}><a href="{{ route('myaccount.donations') }}">Donations</a></li>
                             <li {{ (Request::is('myaccount/security') ? 'class=active' : '') }}><a href="{{ route('myaccount.security') }}">Account Security</a></li>
                             {{--  <li><a href="#">Messages<span class="nk-badge">12</span></a></li>
                             <li><a href="#">Settings</a></li>  --}}

@@ -2,11 +2,12 @@
 @section('myaccount')
 <div class="nk-social-menu-inline">
     <ul>
-        <li class="active"><a href="#">Opt 1</a></li>
-        <li><a href="#">Opt 2</a></li>
-        <li><a href="#">Opt 3</a></li>
-        <li><a href="#">Opt 4</a></li>
-        <li><a href="#">Opt 5</a></li>
+        <li class="active">
+            <a href="#">My Donations</a>
+        </li>
+        <li>
+            <a href="#">Donate Now <i class="ion-ios-heart text-main-5"></i></a>
+        </li>
     </ul>
 </div>
 
@@ -15,13 +16,13 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Donation</th>
+                    <th>Donation #ID</th>
                     <th>Date</th>
                     <th>Status</th>
                     <th>Total</th>
-                    <th>&nbsp;</th>
                 </tr>
             </thead>
+            
             <tbody>
                 <tr class="order">
                     <td><a href="#">#00024</a></td>
@@ -30,7 +31,6 @@
                     </td>
                     <td>Processing</td>
                     <td>$104.99</td>
-                    <td><a href="#" class="nk-btn link-effect-4">View</a></td>
                 </tr>
                 <tr class="order">
                     <td><a href="#">#00018</a></td>
@@ -39,9 +39,9 @@
                     </td>
                     <td>Approved</td>
                     <td>$250.00</td>
-                    <td><a href="#" class="nk-btn link-effect-4">View</a></td>
                 </tr>
             </tbody>
+            
         </table>
     </div>
 </div>

@@ -13,6 +13,7 @@ class DonationController extends Controller {
 
     public function index()
     {
+        dd(auth()->user()->donations()->first()->items()->first()->donations()->with('user')->get());
         return view('myaccount.donations.index');
     }
 

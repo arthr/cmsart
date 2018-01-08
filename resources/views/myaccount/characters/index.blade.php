@@ -29,8 +29,8 @@
 		<li>
 			<div class="nk-social-friends-avatar">
 				<div>
-					<img src="{{ asset('assets/images/lineage/classes/' . $char->class->charTemplate->ClassId . '.png') }}" title="{{ $char->class->charTemplate->ClassName }}"
-					 alt="{{ $char->class->charTemplate->ClassName }}">
+					<img src="{{ asset('assets/images/lineage/classes/' . $char->mainClass->charTemplate->ClassId . '.png') }}" title="{{ $char->mainClass->charTemplate->ClassName }}"
+					 alt="{{ $char->mainClass->charTemplate->ClassName }}">
 				</div>
 				@if($char->nobless)
 				<div>
@@ -59,7 +59,7 @@
 							<a href="{{ route('myaccount.game_account.settings' , $char->account->login) }}">{{ $char->account->login }}</a>
 						</div>
 						<div class="nk-social-activity-meta">
-							<a href="#">Class</a>: {{ $char->class->charTemplate->ClassName }}
+							<a href="#">Class</a>: {{ $char->mainClass->charTemplate->ClassName }}
 						</div>
 						<div class="nk-social-activity-meta">
 							<a href="#">Blood</a>: {{ $char->race_name }}

@@ -32,7 +32,7 @@ class Character extends Model
         return $this->belongsTo(Account::class, 'account_name', 'login');
     }
 
-    public function class ()
+    public function mainClass()
     {
         return $this->belongsTo(CharacterClass::class, 'classid');
     }

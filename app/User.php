@@ -47,7 +47,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Lineage\Account::class, 'user_id');
     }
-
+    
     public function characters()
     {
         return $this->hasManyThrough(Lineage\Character::class, Lineage\Account::class, 'user_id', 'account_name', 'id', 'login');
@@ -77,6 +77,10 @@ class User extends Authenticatable
             $diff = $this->getDateHumanDiff(Carbon::now()->timestamp, (int) ($lastAccess / 1000));
         }
         return $diff;
+    }
+    
+    public function donations() {
+        return $this->hasMany(Lineage\Donation::class);
     }
 
 }
